@@ -1,0 +1,17 @@
+body{
+  background-color: #1d2d3c;
+  color: white;
+}
+
+.card{
+  background-color: #112030;
+  color: white;
+  padding: 5px;
+  margin: 30px;
+}
+
+.card img{
+  align-self: center;
+  width: 80%;
+  margin: 10px;
+}

@@ -15,14 +15,32 @@
   <!-- AXIOS -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="style.css">
+
   <title>Dischi</title>
 </head>
 
 <body>
 
-  <div id="app" class="container">
-    <div class="row">
+  <div id="app">
+    <div class="container">
       <h1 class="text-center">{{ title }}</h1>
+      <div class="row row-cols-3 ">
+
+        <div class="col" v-for="(item, index) in list" :key="index">
+
+          <div class="card">
+            <img :src="item.poster" :alt="item.title">
+            <div class="content text-center ">
+              <h4>{{ item.title }}</h4>
+              <span>{{ item.author }}</span>
+              <h5>{{ item.year }}</h5>
+              <h5>{{ item.genre }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
