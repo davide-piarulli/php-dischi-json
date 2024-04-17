@@ -22,7 +22,7 @@
 
   <div id="app" class="container">
     <div class="row">
-      <h1 class="text-center">{{title}}</h1>
+      <h1 class="text-center">{{ title }}</h1>
     </div>
   </div>
 
