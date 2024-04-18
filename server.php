@@ -7,6 +7,7 @@ $json_string = file_get_contents('dischi.json');
 $list = json_decode($json_string, true);
 
 
+// AGGIUNTA NUOVO DISCO
 // verifico che esista in POST la nuova variabile newDiskTitle
 // se esiste, aggiungo un nuovo disco alla lista ed aggiorno il file Json con la lista decodificata in testo
 if (isset($_POST['newDiskTitle'])) {
@@ -21,6 +22,12 @@ if (isset($_POST['newDiskTitle'])) {
   file_put_contents('dischi.json', json_encode($list));
 }
 
+// RIMOZIONE DISCO
+if (isset($_POST['indexToDelete'])) {
+  $indexToDelete = $_POST['indexToDelete'];
+  array_splice($list, $indexToDelete, 1);
+  file_put_contents('dischi.json', json_encode($list));
+}
 
 
 // trasformo il file PHP come se fosse un file json

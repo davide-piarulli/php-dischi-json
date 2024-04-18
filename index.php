@@ -15,6 +15,9 @@
   <!-- AXIOS -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <!-- FONTAWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- STYLE CSS -->
   <link rel="stylesheet" href="style.css">
 
@@ -25,14 +28,24 @@
 
   <div id="app">
     <div class="container">
-      <h1 class="text-center">Aggiungi un nuovo disco</h1>
+      <h1 class="text-center">{{ newDiskTitle }}</h1>
       <div class="row">
         <div class="d-flex  my-3">
-          <input v-model.trim="newDisk.title" placeholder="Inserisci il titolo del film" class="form-control" type="text">
-          <input v-model.trim="newDisk.author" placeholder="Inserisci l'autore del film" class="form-control" type="text">
-          <input v-model.trim="newDisk.year" placeholder="Inserisci l'anno del film" class="form-control" type="text">
+          <input v-model.trim="newDisk.title" placeholder="Inserisci il titolo del disco" class="form-control" type="text">
+          <input v-model.trim="newDisk.author" placeholder="Inserisci l'autore del disco" class="form-control" type="text">
+          <input v-model.trim="newDisk.year" placeholder="Inserisci l'anno del disco" class="form-control" type="number">
           <input v-model.trim="newDisk.poster" placeholder="URL immagine di copertina" class="form-control" type="text">
-          <input @keyup.enter="addNewDisk" v-model.trim="newDisk.genre" placeholder="Inserisci il genere del film" class="form-control" type="text">
+          <!-- <input
+            @keyup.enter="addNewDisk"
+            v-model.trim="newDisk.genre"
+            placeholder="Inserisci il genere del disco"
+            class="form-control"
+            type="text"> -->
+          <select @keyup.enter="addNewDisk" v-model.trim="newDisk.genre" class="form-select">
+            <option selected>Seleziona il genere</option>
+            <option value="pop">Pop</option>
+            <option value="rock">Rock</option>
+          </select>
           <button @click.stop="addNewDisk" class="btn btn-outline-danger" type="button">Aggiungi</button>
         </div>
       </div>
@@ -49,6 +62,9 @@
               <h5>{{ item.year }}</h5>
               <h5>{{ item.genre }}</h5>
             </div>
+            <button @click.stop="removeDisk(index)" class="btn btn-danger">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
           </div>
         </div>
       </div>
