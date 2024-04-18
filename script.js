@@ -22,10 +22,19 @@ createApp({
         this.list = result.data;
       });
     },
-    addNewDisk(){
+    addNewDisk() {
       const data = new FormData();
-      
-    }
+      data.append("newDiskTitle", this.newDisk.title);
+      data.append("newDiskAuthor", this.newDisk.author);
+      data.append("newDiskYear", this.newDisk.year);
+      data.append("newDiskPoster", this.newDisk.poster);
+      data.append("newDiskGenre", this.newDisk.genre);
+
+      axios.post(this.apiUrl, data).then((result) => {
+        console.log(result.data);
+        this.list = result.data;
+      });
+    },
   },
   mounted() {
     this.getApi();
