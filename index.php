@@ -25,18 +25,18 @@
 
   <div id="app">
     <div class="container">
-      <h1 class="text-center">{{ title }}</h1>
+      <h1 class="text-center">Aggiungi un nuovo disco</h1>
       <div class="row">
-        <div class="input-group d-flex  my-3">
+        <div class="d-flex  my-3">
           <input v-model.trim="newDisk.title" placeholder="Inserisci il titolo del film" class="form-control" type="text">
           <input v-model.trim="newDisk.author" placeholder="Inserisci l'autore del film" class="form-control" type="text">
           <input v-model.trim="newDisk.year" placeholder="Inserisci l'anno del film" class="form-control" type="text">
-          <input v-model.trim="newDisk.year" placeholder="Inserisci l'anno del film" class="form-control" type="text">
           <input v-model.trim="newDisk.poster" placeholder="URL immagine di copertina" class="form-control" type="text">
-          <input v-model.trim="newDisk.genre" placeholder="Inserisci il genere del film" class="form-control" type="text">
+          <input @keyup.enter="addNewDisk" v-model.trim="newDisk.genre" placeholder="Inserisci il genere del film" class="form-control" type="text">
           <button @click.stop="addNewDisk" class="btn btn-outline-danger" type="button">Aggiungi</button>
         </div>
       </div>
+      <h1 class="text-center">{{ title }}</h1>
       <div class="row row-cols-3 ">
 
         <div class="col" v-for="(item, index) in list" :key="index">

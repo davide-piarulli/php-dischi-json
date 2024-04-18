@@ -15,3 +15,7 @@ body{
   width: 80%;
   margin: 10px;
 }
+
+input {
+  margin: 0 5px 0;
+}
