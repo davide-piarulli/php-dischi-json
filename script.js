@@ -6,16 +6,26 @@ createApp({
       title: "Dischi",
       apiUrl: "server.php",
       list: [],
+      newDisk: {
+        title: "",
+        author: "",
+        year: "",
+        poster: "",
+        genre: "",
+      },
     };
   },
   methods: {
     getApi() {
       axios.get(this.apiUrl).then((result) => {
-        console.log(result.data);
+        // qui prendo i dati dal Json
         this.list = result.data;
-        console.log(this.list);
       });
     },
+    addNewDisk(){
+      const data = new FormData();
+      
+    }
   },
   mounted() {
     this.getApi();
