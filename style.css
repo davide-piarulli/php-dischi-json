@@ -8,6 +8,7 @@ body{
   color: white;
   padding: 5px;
   margin: 30px;
+  position: relative;
 }
 
 .card img{
@@ -16,6 +17,20 @@ body{
   margin: 10px;
 }
 
+.card .loved{
+  width: 30px;
+  height: 30px;
+  color: red;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+.card .loved i {
+  font-size: 1.5rem;
+}
+
 input {
   margin: 0 5px 0;
 }
+

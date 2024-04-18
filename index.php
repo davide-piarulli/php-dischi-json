@@ -35,17 +35,13 @@
           <input v-model.trim="newDisk.author" placeholder="Inserisci l'autore del disco" class="form-control" type="text">
           <input v-model.trim="newDisk.year" placeholder="Inserisci l'anno del disco" class="form-control" type="number">
           <input v-model.trim="newDisk.poster" placeholder="URL immagine di copertina" class="form-control" type="text">
-          <!-- <input
-            @keyup.enter="addNewDisk"
-            v-model.trim="newDisk.genre"
-            placeholder="Inserisci il genere del disco"
-            class="form-control"
-            type="text"> -->
-          <select @keyup.enter="addNewDisk" v-model.trim="newDisk.genre" class="form-select">
+
+          <select v-model.trim="newDisk.genre" class="form-select">
             <option selected>Seleziona il genere</option>
             <option value="pop">Pop</option>
             <option value="rock">Rock</option>
           </select>
+
           <button @click.stop="addNewDisk" class="btn btn-outline-danger" type="button">Aggiungi</button>
         </div>
       </div>
@@ -62,6 +58,9 @@
               <h5>{{ item.year }}</h5>
               <h5>{{ item.genre }}</h5>
             </div>
+            <button class="btn loved">
+              <i class="fa-solid fa-heart"></i>
+            </button>
             <button @click.stop="removeDisk(index)" class="btn btn-danger">
               <i class="fa-solid fa-trash-can"></i>
             </button>
