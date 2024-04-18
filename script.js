@@ -43,12 +43,15 @@ createApp({
     },
 
     removeDisk(index) {
-      const data = new FormData();
-      data.append("indexToDelete", index);
+      const diskToDelete = this.list[index];
+      if (confirm(`Cancellare il disco ${diskToDelete.title} ?`)) {
+        const data = new FormData();
+        data.append("indexToDelete", index);
 
-      axios.post(this.apiUrl, data).then((result) => {
-        this.list = result.data;
-      });
+        axios.post(this.apiUrl, data).then((result) => {
+          this.list = result.data;
+        });
+      }
     },
   },
   mounted() {
